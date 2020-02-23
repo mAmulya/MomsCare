@@ -23,6 +23,9 @@ app.use('/styles', express.static('styles'))
 
 
 app.use('/',require('./routes/landing'));
+app.use('/doc',require('./routes/doc'));
+app.use('/user',require('./routes/user'));
+app.use('/booking',require('./routes/booking'));
 
 
 server.listen(8000, function(){

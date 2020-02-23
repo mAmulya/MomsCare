@@ -7,7 +7,7 @@ window.onscroll = function(){
 
   if (window.pageYOffset < 50){
     navbar.style.background = "rgba(0, 0, 0, 0)";
-    navbar.style.borderBottom = "1px solid #f2f2f2";
+navbar.style.boxShadow = "none";
     little.style.color = "#ffffff";
     one.style.color = "#60bfdc";
     for(var i=0; i<items.length; i++){
@@ -19,7 +19,6 @@ window.onscroll = function(){
   } else {
     navbar.style.backgroundColor = '#fff';
     navbar.style.boxShadow = "0 4px 4px -2px #495057";
-    navbar.style.borderBottom = "none";
     little.style.color = "grey";
     one.style.color = "#60bfdc";
     for(var i=0; i<items.length; i++){
