@@ -6,8 +6,10 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 const nodemailer = require('nodemailer');
 
-const Users=require('../models/Users');
 
+const Users=require('../models/Users');
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 router.get('/',function(req,res){
 
   Users.find({},function(err,guides){
@@ -24,6 +26,7 @@ router.get('/',function(req,res){
 
 
 
+<<<<<<< HEAD
 router.post('/',urlencodedParser, function (req, res) {
   console.log(req.body);
 
@@ -58,4 +61,6 @@ router.post('/',urlencodedParser, function (req, res) {
   })
 
 
+=======
+>>>>>>> 4fa5abbe450b464ba673f670d4fc7f122faa7413
 module.exports = router;

@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Login</title>
+    <link rel="stylesheet" href="/styles/login/style.css">
+     <link href="/styles/login/floating-labels.css" rel="stylesheet">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="/styles/login/script.js">
+
+    </script>
+
+
+  </head>
+  <body>
+    <br><br><br>
+
+
+
+<div class="login-reg-panel" style="margin-left:3%;">
+
+
+		<div class="register-info-box" style="margin-left: 10%;">
+			<h2>Don't have an account?</h2>
+			<p>Lorem ipsum dolor sit amet</p>
+			<label id="label-login" for="log-login-show"><a href="/users/signup">Register</a></label>
+		</div>
+
+    <div class="white-panel" style="width:52%">
+      <%if(error=='true'){%>
+        <div class="alert alert-danger" role="alert">
+          Mail hasn't registered.
+    
+        </div>
+      <%}%>
+      
+			<div class="login-show">
+				<h2>LOGIN</h2>
+        <form method="post"   action="/users/login">
+          <div class="form-label-group">
+            <input type="text" style="height:50px" id="inputuser" name="email" class="form-control" placeholder="Email" required />
+            <label for="inputuser">Email</label>
+          </div>
+          
+
+				<input type="submit" name='button' value="Next">
+      </form>
+
+				<a href="" class="a">Forgot password?</a>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript">
+
+</script>
+  </body>
+</html>

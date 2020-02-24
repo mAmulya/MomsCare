@@ -1,7 +1,12 @@
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
-const http = require('http');
 var app=express()
+const morgan=require("morgan");
+const bodyparser=require("body-parser");
+const http = require('http');
+var multer =require('multer');
+
+
 //EJS
 const server = http.createServer(app);
 
@@ -9,6 +14,9 @@ const server = http.createServer(app);
 app.set('view engine','ejs');
 
 const mongoose = require('mongoose');
+app.use(morgan('dev'));
+app.use(bodyparser.urlencoded({extended:false}));
+app.use(bodyparser.json());
 
 const URI = 'mongodb+srv://amulya:mommy@123@cluster0-tll5r.mongodb.net/MomsCare?retryWrites=true&w=majority';
 
@@ -18,17 +26,31 @@ mongoose.connect(URI,{   useNewUrlParser: true,
     .then(()=>console.log('connected to mongodb'))
     .catch(err=>console.log(err))
 
+    var storage = multer.diskStorage({
+      destination: function (req, file, cb) {
+        cb(null, __dirname+'/uploads/')
+      },
+      filename: function (req, file, cb) {
+        cb(null, file.originalname + Date.now()+ '.jpeg' )
+      }
+    })
+    
+    
+    app.use(multer({ storage: storage }).any());
 
 app.use('/styles', express.static('styles'))
 
 
 app.use('/',require('./routes/landing'));
+<<<<<<< HEAD
 app.use('/doc',require('./routes/doc'));
 app.use('/user',require('./routes/user'));
 app.use('/booking',require('./routes/booking'));
+=======
+app.use('/users',require('./routes/loginnsignup'));
+>>>>>>> 4fa5abbe450b464ba673f670d4fc7f122faa7413
 
-
-server.listen(8000, function(){
+server.listen(5000, function(){
   console.log("Connected to server")
 });
 console.log('you are listening to port 8000');
